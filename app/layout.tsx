@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Nextjs Movie App',
     type: 'website',
-    images: `${process.env.NEXT_PUBLIC_BASE_PATH}/main.jpg`,
+    images: 'https://nextjs-movie-app-steel.vercel.app/main.jpg',
     url: '',
     description,
     siteName: 'Nextjs Movie App',
