@@ -1,0 +1,34 @@
+html {
+  --color-black: #0E111B;
+  --color-white: #FFF;
+  --color-white-50: rgba(255,255,255,.5);
+  --color-white-30: rgba(255,255,255,.3);
+  --color-white-20: rgba(255,255,255,.2);
+  --color-white-10: rgba(255,255,255,.1);
+  --color-white-5: rgba(255,255,255,.05);
+  --color-primary: #FDC000;
+  --color-hover: #F86A05;
+  --color-area: #1C212E;
+}
+body {
+  background-color: var(--color-black);
+  line-height: 1.4;
+  color: var(--color-white);
+}
+
+/* Container */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+@media (max-width: 1200px) {
+  .container {
+    padding: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    padding: 40px 20px;
+  }
+}

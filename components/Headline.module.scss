@@ -1,0 +1,17 @@
+.headline {
+  margin-bottom: 40px;
+  h1 {
+    font-size: 80px;
+    line-height: 1;
+    margin-bottom: 40px;
+    @media (max-width: 600px) {
+      font-size: 60px;
+    }
+    span {
+      color: var(--color-primary);
+    }
+  }
+  p {
+    color: var(--color-white-30);
+  }
+}

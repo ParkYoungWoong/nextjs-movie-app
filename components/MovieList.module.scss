@@ -1,0 +1,16 @@
+.movieListContainer {
+  padding: 20px;
+  border-radius: 4px;
+  background-color: var(--color-area);
+  .message {
+    color: var(--color-primary);
+    text-align: center;
+    opacity: .5;
+  }
+  .movieList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
