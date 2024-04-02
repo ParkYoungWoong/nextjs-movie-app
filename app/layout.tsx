@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'Nextjs Movie App',
     type: 'website',
     images: 'https://nextjs-movie-app-steel.vercel.app/main.jpg',
-    url: '',
+    url: 'https://nextjs-movie-app-steel.vercel.app',
     description,
     siteName: 'Nextjs Movie App',
     locale: 'ko_KR'

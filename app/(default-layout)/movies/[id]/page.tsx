@@ -20,7 +20,7 @@ export async function generateMetadata({ params: { id } }: Context) {
       title: movie.Title,
       type: 'website',
       images: movie.Poster,
-      url: `/movies/${movie.imdbID}`,
+      url: `https://nextjs-movie-app-steel.vercel.app/movies/${movie.imdbID}`,
       description: movie.Plot,
       siteName: 'Nextjs Movie App',
       locale: 'ko_KR'
