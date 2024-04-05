@@ -44,9 +44,9 @@ export async function generateMetadata() {
       title,
       type: 'website',
       images: data.image.photo,
-      url: 'https://nextjs-movie-app-steel.vercel.app/about',
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/about`,
       description,
-      siteName: 'Nextjs Movie App',
+      siteName: process.env.NEXT_PUBLIC_SITE_NAME,
       locale: 'ko_KR'
     }
   }

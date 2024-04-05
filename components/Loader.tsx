@@ -5,9 +5,7 @@ export default function Loader({
   color = 'primary',
   loading = true
 }) {
-  const colors: {
-    [key: string]: string
-  } = {
+  const colors: Record<string, string> = {
     light: '#fff',
     dark: '#0E111B',
     primary: '#FDC000'

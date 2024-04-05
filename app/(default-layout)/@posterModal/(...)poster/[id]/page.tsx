@@ -7,7 +7,7 @@ export default async function Poster({
   params: { id: string }
 }) {
   const res = await fetch(
-    `https://omdbapi.com/?apikey=${process.env.OMDB_API}&i=${id}&plot=full`
+    `https://omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${id}&plot=full`
   )
   const movie: DetailedMovie = await res.json()
   return <PosterModal movie={movie} />

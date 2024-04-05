@@ -2,8 +2,8 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      { hostname: 'heropy.dev' },
-      { hostname: 'm.media-amazon.com' }
+      { protocol: 'https', hostname: 'heropy.dev' },
+      { protocol: 'https', hostname: 'm.media-amazon.com' }
     ]
   }
 }

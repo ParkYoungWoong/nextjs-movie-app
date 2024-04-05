@@ -19,7 +19,11 @@ export default function Button({
 >) {
   return (
     <button
-      className={`${styles.btn} ${color ? styles[`btn-${color}`] : ''} ${circle ? styles.circle : ''}`}
+      className={`
+        ${styles.btn}
+        ${color ? styles[`btn-${color}`] : ''}
+        ${circle ? styles.circle : ''}
+      `}
       {...restProps}>
       {loading ? <Loader color={loadingColor} /> : children}
     </button>

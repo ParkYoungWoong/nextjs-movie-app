@@ -10,7 +10,7 @@ type Context = {
 
 export async function generateMetadata({ params: { id } }: Context) {
   const res = await fetch(
-    `https://omdbapi.com/?apikey=${process.env.OMDB_API}&i=${id}&plot=full`
+    `https://omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${id}&plot=full`
   )
   const movie: DetailedMovie = await res.json()
   return {
@@ -18,11 +18,11 @@ export async function generateMetadata({ params: { id } }: Context) {
     description: movie.Plot,
     openGraph: {
       title: movie.Title,
+      description: movie.Plot,
       type: 'website',
       images: movie.Poster,
-      url: `https://nextjs-movie-app-steel.vercel.app/movies/${movie.imdbID}`,
-      description: movie.Plot,
-      siteName: 'Nextjs Movie App',
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/movies/${movie.imdbID}`,
+      siteName: process.env.NEXT_PUBLIC_SITE_NAME,
       locale: 'ko_KR'
     }
   }
@@ -30,7 +30,7 @@ export async function generateMetadata({ params: { id } }: Context) {
 
 export default async function MovieDetail({ params: { id } }: Context) {
   const res = await fetch(
-    `https://omdbapi.com/?apikey=${process.env.OMDB_API}&i=${id}&plot=full`
+    `https://omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${id}&plot=full`
   )
   const movie: DetailedMovie = await res.json()
   return (

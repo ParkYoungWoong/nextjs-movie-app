@@ -49,7 +49,7 @@ export default function Header() {
         className={styles.user}>
         <Image
           src="https://heropy.dev/favicon.png"
-          alt="User"
+          alt="HEROPY"
           width="40"
           height="40"
         />

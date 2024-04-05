@@ -85,7 +85,7 @@ export const useMoviesStore = create<{
   resetMovies: () =>
     set({
       searchText: '',
-      movies: [] as Movies,
+      movies: [],
       loading: false,
       message: defaultMessage
     })
