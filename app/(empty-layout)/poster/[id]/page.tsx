@@ -12,7 +12,11 @@ export default async function Poster({
   const movie: DetailedMovie = await res.json()
   return (
     <Image
-      style={{ width: '100%', height: 'auto' }}
+      style={{
+        display: 'block',
+        width: '100%',
+        height: 'auto'
+      }}
       src={movie.Poster.replace('SX300', 'SX1000')}
       alt={movie.Title}
       width="1000"

@@ -30,20 +30,25 @@ export interface Image {
   photo: string
 }
 
-export async function generateMetadata() {
+async function getMe(): Promise<Whoami> {
   const res = await fetch('https://api.heropy.dev/v0/whoami', {
-    cache: 'no-store'
+    cache: 'no-store' // 캐시 사용 금지
+    // next: { revalidate: 1 * 60 * 60 * 24 } // 24시간마다 재검증
   })
-  const data: Whoami = await res.json()
-  const title = data.name.ko
-  const description = data.resumeHighlights.join(' / ')
+  return await res.json()
+}
+
+export async function generateMetadata() {
+  const me = await getMe()
+  const title = me.name.ko
+  const description = me.resumeHighlights.join(' / ')
   return {
     title,
     description,
     openGraph: {
       title,
       type: 'website',
-      images: data.image.photo,
+      images: me.image.photo,
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/about`,
       description,
       siteName: process.env.NEXT_PUBLIC_SITE_NAME,
@@ -53,32 +58,29 @@ export async function generateMetadata() {
 }
 
 export default async function AboutPage() {
-  const res = await fetch('https://api.heropy.dev/v0/whoami', {
-    cache: 'no-store'
-  })
-  const data: Whoami = await res.json()
+  const me = await getMe()
   return (
     <div className={styles.about}>
       <Image
-        src={data.image.logo}
+        src={me.image.logo}
         alt="User"
         width="230"
         height="230"
       />
       <h1>
-        {data.name.ko}
-        <span>({data.name.alias})</span>
+        {me.name.ko}
+        <span>({me.name.alias})</span>
       </h1>
       <section>
-        {data.resumeHighlights.map(h => (
+        {me.resumeHighlights.map(h => (
           <p key={h}>{h}</p>
         ))}
       </section>
       <section>
-        {Object.keys(data.contact).map(c => (
+        {Object.keys(me.contact).map(c => (
           <p key={c}>
             <a
-              href={data.contact[c as keyof Contact]}
+              href={me.contact[c as keyof Contact]}
               target="_blank">
               {c}
             </a>

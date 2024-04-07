@@ -50,10 +50,13 @@ export const useMoviesStore = create<{
   searchMovies: () => Promise<void>
   resetMovies: () => void
 }>((set, get) => ({
+  // State
   searchText: '',
-  movies: [] as Movies,
+  movies: [],
   loading: false,
   message: defaultMessage,
+
+  // Actions
   setSearchText: (text: string) => set({ searchText: text }),
   searchMovies: async () => {
     const { searchText, loading } = get()

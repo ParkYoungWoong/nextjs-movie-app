@@ -21,7 +21,7 @@ export async function generateMetadata({ params: { id } }: Context) {
       description: movie.Plot,
       type: 'website',
       images: movie.Poster,
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/movies/${movie.imdbID}`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/movies/${id}`,
       siteName: process.env.NEXT_PUBLIC_SITE_NAME,
       locale: 'ko_KR'
     }
